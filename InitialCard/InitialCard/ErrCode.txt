@@ -1,0 +1,167 @@
+void GetErrMessage(long lError, CString strErr)
+{
+	CString strUnknownErr;
+	TurnOnErrorLed();
+	   
+	switch (eError)
+	{
+		   
+	case SCARD_E_CANCELLED:
+		strErr.Format( "SCARD_E_CANCELLED:\r\n   The action was canceled by an SCardCancel request.");
+		break;
+		   
+	case SCARD_E_CANT_DISPOSE:
+		strErr.Format( "SCARD_E_CANT_DISPOSE:\r\n   The system could not dispose of the media in the requested manner.");
+		break;
+		   
+	case SCARD_E_CARD_UNSUPPORTED:
+		strErr.Format( "SCARD_E_CARD_UNSUPPORTED:\r\n   The smart card does not meet minimal requirements for support.");
+		break;
+		   
+	case SCARD_E_DUPLICATE_READER:
+		strErr.Format( "SCARD_E_DUPLICATE_READER:\r\n   The reader driver didn't produce a unique reader name.");
+		break;
+		   
+		   
+	case SCARD_E_INSUFFICIENT_BUFFER:
+		strErr.Format( "SCARD_E_INSUFFICIENT_BUFFER:\r\n   The data buffer for returned data is too small for the returned data.");
+		break;
+		   
+	case SCARD_E_INVALID_ATR:
+		strErr.Format( "SCARD_E_INVALID_ATR:\r\n   An ATR string obtained from the registry is not a valid ATR string.");
+		break;
+		   
+		   
+	case SCARD_E_INVALID_HANDLE:
+		strErr.Format( "SCARD_E_INVALID_HANDLE:\r\n   The supplied handle was invalid.");
+		break;
+		   
+	case SCARD_E_INVALID_PARAMETER:
+		strErr.Format( "SCARD_E_INVALID_PARAMETER:\r\n   One or more of the supplied parameters could not be properly interpreted.");
+		break;
+		   
+	case SCARD_E_INVALID_TARGET:
+		strErr.Format( "SCARD_E_INVALID_TARGET:\r\n   Registry startup information is missing or invalid.");
+		break;
+		   
+	case SCARD_E_INVALID_VALUE:
+		strErr.Format( "SCARD_E_INVALID_VALUE:\r\n   One or more of the supplied parameter values could not be properly interpreted.");
+		break;
+		   
+		   
+	case SCARD_E_NO_MEMORY:
+		strErr.Format( "SCARD_E_NO_MEMORY:\r\n   Not enough memory available to complete this command.");
+		break;
+		   
+		   
+	case SCARD_E_NO_SERVICE:
+		strErr.Format( "SCARD_E_NO_SERVICE:\r\n   The smart card resource manager is not running.");
+		break;
+		   
+	case SCARD_E_NO_SMARTCARD:
+		strErr.Format( "SCARD_E_NO_SMARTCARD:\r\n   The operation requires a smart card,\r\n\tbut no smart card is currently in the device.");
+		break;
+		   
+		   
+	case SCARD_E_NOT_READY:
+		strErr.Format( "SCARD_E_NOT_READY:\r\n   The reader or card is not ready to accept commands.");
+		break;
+		   
+	case SCARD_E_NOT_TRANSACTED:
+		strErr.Format( "SCARD_E_NOT_TRANSACTED:\r\n   An attempt was made to end a non-existent transaction.");
+		break;
+		   
+	case SCARD_E_PCI_TOO_SMALL:
+		strErr.Format( "SCARD_E_PCI_TOO_SMALL:\r\n   The PCI receive buffer was too small.");
+		break;
+		   
+	case SCARD_E_PROTO_MISMATCH:
+		strErr.Format( "SCARD_E_PROTO_MISMATCH:\r\n   The requested protocols are incompatible with the protocol\r\n\tcurrently in use with the card.");
+		break;
+		   
+	case SCARD_E_READER_UNAVAILABLE:
+		strErr.Format( "SCARD_E_READER_UNAVAILABLE:\r\n   The specified reader is not currently available for use.");
+		break;
+		   
+	case SCARD_E_READER_UNSUPPORTED:
+		strErr.Format( "SCARD_E_READER_UNSUPPORTED:\r\n   The reader driver does not meet minimal requirements for support.");
+		break;
+		   
+	case SCARD_E_SERVICE_STOPPED:
+		strErr.Format( "SCARD_E_SERVICE_STOPPED:\r\n   The smart card resource manager has shut down.");
+		break;
+		   
+	case SCARD_E_SHARING_VIOLATION:
+		strErr.Format( "SCARD_E_SHARING_VIOLATION:\r\n   The smart card cannot be accessed because of other outstanding connections.");
+		break;
+		   
+	case SCARD_E_SYSTEM_CANCELLED:
+		strErr.Format( "SCARD_E_SYSTEM_CANCELLED:\r\n   The action was canceled by the system, presumably to log off or shut down.");
+		break;
+		   
+	case SCARD_E_TIMEOUT:
+		strErr.Format( "SCARD_E_TIMEOUT:\r\n   The user-specified timeout value has expired.");
+		break;
+		   
+		   
+	case SCARD_E_UNKNOWN_CARD:
+		strErr.Format( "SCARD_E_UNKNOWN_CARD:\r\n   The specified smart card name is not recognized.");
+		break;
+		   
+	case SCARD_E_UNKNOWN_READER:
+		strErr.Format( "SCARD_E_UNKNOWN_READER:\r\n   The specified reader name is not recognized.");
+		break;
+		   
+		   
+	case SCARD_F_COMM_ERROR:
+		strErr.Format( "SCARD_F_COMM_ERROR:\r\n   An internal communications error has been detected.");
+		break;
+		   
+	case SCARD_F_INTERNAL_ERROR:
+		strErr.Format( "SCARD_F_INTERNAL_ERROR:\r\n   An internal consistency check failed.");
+		break;
+		   
+	case SCARD_F_UNKNOWN_ERROR:
+		strErr.Format( "SCARD_F_UNKNOWN_ERROR:\r\n   An internal error has been detected, but the source is unknown.");
+		break;
+		   
+	case SCARD_F_WAITED_TOO_LONG:
+		strErr.Format( "SCARD_F_WAITED_TOO_LONG:\r\n   An internal consistency timer has expired.");
+		break;
+		   
+	case SCARD_P_SHUTDOWN:
+		strErr.Format( "SCARD_P_SHUTDOWN:\r\n   The operation has been aborted to allow the server application to exit.");
+		break;
+		   
+	case SCARD_S_SUCCESS:
+		strErr.Format( "SCARD_S_SUCCESS:\r\n   No error was encountered.");
+		break;
+		   
+		   
+	case SCARD_W_REMOVED_CARD:
+		strErr.Format( "SCARD_W_REMOVED_CARD:\r\n   The smart card has been removed, so that further communication is not possible.");
+		break;
+		   
+	case SCARD_W_RESET_CARD:
+		strErr.Format( "SCARD_W_RESET_CARD:\r\n   The smart card has been reset, so any shared state information is invalid.");
+		break;
+		   
+		   
+	case SCARD_W_UNPOWERED_CARD:
+		strErr.Format( "SCARD_W_UNPOWERED_CARD:\r\n   Power has been removed from the smart card, so that further communication is not possible.");
+		break;
+		   
+	case SCARD_W_UNRESPONSIVE_CARD:
+		strErr.Format( "SCARD_W_UNRESPONSIVE_CARD:\r\n   The smart card is not responding to a reset.");
+		break;
+		   
+	case SCARD_W_UNSUPPORTED_CARD:
+		strErr.Format( "SCARD_W_UNSUPPORTED_CARD:\r\n   The reader cannot communicate with the card, due to ATR string configuration conflicts.");
+		break;
+		   
+	default:
+		strErr.Format("There was error in this operation, No error string available, ErrorCode = 0x%08X",eError);
+		break;
+	}
+	
+}
