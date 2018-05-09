@@ -18,6 +18,17 @@
 #define RF_CARD		0
 #define SAM_CARD	1
 
+#define SELECT	0
+#define COM1	1
+#define COM2	2
+#define COM3	3
+#define COM4	4
+#define COM5	5
+
+#define EF05	0
+#define EF06	1
+#define EF07	2
+#define EF08	3
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
@@ -67,6 +78,11 @@ void CHS_DemoDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_PROTOCOL, m_edtProtocol);
 	DDX_Control(pDX, IDC_COMBO_CARD_SEAT, m_cmbCardSeat);
 	DDX_Control(pDX, IDC_BUTTON_RST, m_btnResetProtocol);
+	DDX_Control(pDX, IDC_COMBO_PORT, m_cmbPort);
+	DDX_Control(pDX, IDC_EDIT_ADMIN_NO, m_edtAdminCardN);
+	DDX_Control(pDX, IDC_EDIT_USER_CARD, m_edtCardNO);
+	DDX_Control(pDX, IDC_COMBO_FILE_ID, m_cmbFileID);
+	DDX_Control(pDX, IDC_EDIT_DISP, m_edtDisp);
 }
 
 BEGIN_MESSAGE_MAP(CHS_DemoDlg, CDialogEx)
@@ -75,6 +91,7 @@ BEGIN_MESSAGE_MAP(CHS_DemoDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON_RST, &CHS_DemoDlg::OnBnClickedButtonRst)
 	ON_BN_CLICKED(IDC_BUTTON_GEN_PROTOCOL, &CHS_DemoDlg::OnBnClickedButtonGenProtocol)
+	ON_BN_CLICKED(IDC_BUTTON_OPEN_PORT, &CHS_DemoDlg::OnBnClickedButtonOpenPort)
 END_MESSAGE_MAP()
 
 
@@ -113,6 +130,21 @@ BOOL CHS_DemoDlg::OnInitDialog()
 	m_cmbCardSeat.InsertString(RF_CARD, "非接触卡座");
 	m_cmbCardSeat.InsertString(SAM_CARD, "接触式卡座");
 	m_cmbCardSeat.SetCurSel(0);
+
+
+	m_cmbPort.InsertString(SELECT, "请选择串口");
+	m_cmbPort.InsertString(COM1, "COM1");
+	m_cmbPort.InsertString(COM2, "COM2");
+	m_cmbPort.InsertString(COM3, "COM3");
+	m_cmbPort.InsertString(COM4, "COM4");
+	m_cmbPort.InsertString(COM5, "COM5");
+	m_cmbPort.SetCurSel(SELECT);
+
+	m_cmbFileID.InsertString(EF05, "EF05");
+	m_cmbFileID.InsertString(EF06, "EF06");
+	m_cmbFileID.InsertString(EF07, "EF07");
+	m_cmbFileID.InsertString(EF08, "EF08");
+	m_cmbFileID.InsertString(EF05);
 
 	m_edtAPDU.SetWindowTextA("0020000003123456");
 
@@ -242,4 +274,13 @@ int CHS_DemoDlg::ConstructProtocol(CString strAPDU, int iCardSeat, unsigned char
 
 	Bin2Hex(pszProtocol, szProtocol, iApduLen);
 	return 0;
+}
+
+
+void CHS_DemoDlg::OnBnClickedButtonOpenPort()
+{
+	// TODO:  在此添加控件通知处理程序代码
+
+
+
 }

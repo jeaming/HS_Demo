@@ -39,4 +39,10 @@ public:
 	afx_msg void OnBnClickedButtonGenProtocol();
 	// Apdu
 	int ConstructProtocol(CString strAPDU, int iCardSeat, unsigned char* pszProtocol);
+	CComboBox m_cmbPort;
+	CEdit m_edtAdminCardN;
+	CEdit m_edtCardNO;
+	CComboBox m_cmbFileID;
+	CEdit m_edtDisp;
+	afx_msg void OnBnClickedButtonOpenPort();
 };
